@@ -1,75 +1,7 @@
+<meta charset="UTF-8">
 <html>
 <head>
-    <style>
-        body {
-            padding: 0;
-            margin: 0;
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #ddd;
-            font-size: 12px;
-        }
-
-        #content {
-            width: 980px;
-            margin: 5px auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 100px 100px 100px;
-            grid-gap: 5px;
-        }
-
-        #content div {
-            box-shadow: 5px 10px 18px #888888;
-            border-radius: 5px;
-        }
-
-        .cell {
-            padding: 5px;
-            background-color: azure;
-        }
-
-        .header {
-            grid-column: 1 / 3;
-            grid-row: 1 / 2;
-            font-weight: bold;
-            font-size: 20px;
-            background-color: #ffe628;
-            color: #2a3b60;
-        }
-
-        @media only screen and (min-device-width: 200px) and (max-device-width: 320px) {
-            #content {
-                width: 200px;
-            }
-
-            .cell p {
-                display: none;
-            }
-
-            .header {
-                font-weight: bold;
-                font-size: 12px;
-                background-color: #ffe628;
-                color: #2a3b60;
-            }
-        }
-
-        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-            #content {
-                width: 310px;
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media only screen and (min-device-width: 480px) and (max-device-width: 980px) {
-            #content {
-                width: 470px;
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
 
@@ -77,14 +9,36 @@
     <div class="header">
         <span>Repositories</span>
     </div>
-    <div class="cell">
-        <a href="https://github.com/martins-olekss/web-temperature">web-temperature</a>
-        <p>Example for reading data from DS18B20 temperature sensor using Raspberry Pi</p>
-    </div>
-    <div class="cell">
-        <a href="https://github.com/martins-olekss/simple-web-mplayer">simple-web-mplayer</a>
-        <p>Play music on Raspberry Pi, web interface</p>
-    </div>
 </div>
+
+<script>
+    String.prototype.format = function () {
+        let a = this;
+        for (let k in arguments) {
+            a = a.replace(new RegExp("\\{" + k + "\\}", 'g'), arguments[k]);
+        }
+        return a
+    };
+
+    let row = "<div class='cell'><a href='{0}'>{1}</a><p>{2}</p></div>";
+    let projectList = [
+        {
+            title: "web-temperature",
+            link: 'https://github.com/martins-olekss/web-temperature',
+            description: 'Example for reading data from DS18B20 temperature sensor using Raspberry Pi'
+        },
+        {
+            title: "simple-web-mplayer",
+            link: 'https://github.com/martins-olekss/simple-web-mplayer',
+            description: 'Play music on Raspberry Pi, web interface'
+        }
+    ];
+    (function () {
+        projectList.forEach(listProject);
+        function listProject(item) {
+            document.getElementById("content").innerHTML += row.format(item.link, item.title, item.description);
+        }
+    })();
+</script>
 </body>
 </html>
