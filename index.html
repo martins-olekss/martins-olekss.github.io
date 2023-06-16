@@ -1,44 +1,34 @@
 <meta charset="UTF-8">
-<html>
+<html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/crt.css">
+    <title>page.html</title>
 </head>
 <body>
-
-<div id="content">
-    <div class="header">
-        <span>Repositories</span>
+<div id="wrapper" class="crt">
+    <div id="links">
+        <a href="https://github.com/martins-olekss" class="item">
+            <img class="icon" src="img/github.svg" alt="GitHub icon"/>
+            <span>GitHub</span>
+        </a>
+    </div>
+    <div id="content">
+        <div class="title-block">About me</div>
+        <div class="text-block">
+            <p style="margin-bottom: 5px">
+                I have a keen interest in web development, particularly with a focus on Laravel and Vue,
+                which are my main areas of expertise.
+            </p>
+            <p>
+                When I'm not working, I find myself captivated by game development,
+                procedural geometry, and the creation of art.</p>
+        </div>
     </div>
 </div>
 
-<script>
-    String.prototype.format = function () {
-        let a = this;
-        for (let k in arguments) {
-            a = a.replace(new RegExp("\\{" + k + "\\}", 'g'), arguments[k]);
-        }
-        return a
-    };
-
-    let row = "<div class='cell'><a href='{0}'>{1}</a><p>{2}</p></div>";
-    let projectList = [
-        {
-            title: "web-temperature",
-            link: 'https://github.com/martins-olekss/web-temperature',
-            description: 'Example for reading data from DS18B20 temperature sensor using Raspberry Pi'
-        },
-        {
-            title: "simple-web-mplayer",
-            link: 'https://github.com/martins-olekss/simple-web-mplayer',
-            description: 'Play music on Raspberry Pi, web interface'
-        }
-    ];
-    (function () {
-        projectList.forEach(listProject);
-        function listProject(item) {
-            document.getElementById("content").innerHTML += row.format(item.link, item.title, item.description);
-        }
-    })();
-</script>
+<div id="footer">
+    © 2023
+</div>
 </body>
 </html>
