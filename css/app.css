@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     color: rgb(214, 214, 214);
-    text-shadow: 1px 0 1px rgba(0, 30, 255, 0.2), -1px 0 1px rgba(255, 0, 80, 0.3), 0 0 1px;
+    text-shadow: 0 0 1px rgba(255, 255, 255), -0.002px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
     font-weight: 400;
 }
 
@@ -42,21 +42,24 @@ img.icon {
     width: 60px;
 }
 
-#wrapper #content {
-    width: 450px;
-    margin: 0 auto;
+.window {
     box-shadow: 5px 3px 3px rgb(100, 100, 100);
     border-radius: 1px;
 }
 
-#wrapper #content .text-block {
-    padding: 6px;
+.window .title-block {
+    padding: 5px;
+    background: linear-gradient(90deg, navy, #1084d0);
+}
+
+.window .text-block {
+    padding: 10px;
     background-color: #c0c0c0;
 }
 
-#wrapper #content .title-block {
-    padding: 2px;
-    background: linear-gradient(90deg, navy, #1084d0);
+#wrapper #window-about {
+    width: 450px;
+    margin: 0 auto;
 }
 
 #footer {
