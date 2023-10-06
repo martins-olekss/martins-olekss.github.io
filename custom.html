@@ -1,13 +1,17 @@
 <html>
     <head>
-        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
     </head>
     <body>
-        <form action="#" method="GET">
-           <input type="text" placeholder="username"/>
-           <input type="password" placeholder="password"/>
-           <button type="submit" value="Submit">Log in</button>
-        </form>
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAALPJQKL4ylIwdjF" data-callback="javascriptCallback"></div>
+        <script>
+            window.onloadTurnstileCallback = function () {
+                turnstile.render('#example-container', {
+                    sitekey: '0x4AAAAAAALPJQKL4ylIwdjF',
+                    callback: function(token) {
+                        console.log(`Challenge Success ${token}`);
+                    },
+                });
+            };
+        </script>
     </body>
 </html>
